@@ -1,0 +1,16 @@
+/*
+* App style
+*/
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+// Layout
+@import "layout/layout";
+
+// Components
+@import "components";
