@@ -4,10 +4,12 @@ import { ITab } from 'app/components/tabs'
 
 export interface IInitialState {
   tabs: ITab[]
+  activeTab: number
 }
 
 const initialState: IInitialState = {
   tabs: [],
+  activeTab: 0,
 }
 
 const slice = createSlice({
@@ -19,6 +21,9 @@ const slice = createSlice({
     },
     clearTabs(state) {
       state.tabs = []
+    },
+    setActiveTab(state, action) {
+      state.activeTab = action.payload.activeTab
     },
   },
 })
@@ -41,6 +46,19 @@ export function setTabs(tabs: ITab[]) {
 export function clearTabs() {
   return async (dispatch: AppDispatch) => {
     dispatch(slice.actions.clearTabs())
+
+    return true
+  }
+}
+
+export function setActiveTab(activeTab: number) {
+  return async (dispatch: AppDispatch) => {
+    dispatch(
+      slice.actions.setActiveTab({
+        activeTab,
+      })
+    )
+
     return true
   }
 }
