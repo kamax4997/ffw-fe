@@ -1,5 +1,23 @@
 .tabs {
+  align-self: center;
+
   .tabs__container {
     display: flex;
+
+    .tab {
+      margin: 8px;
+      color: #c4cee1;
+      cursor: pointer;
+
+      &.active {
+        color: #fd5d1b;
+      }
+
+      .tab__container {
+        font-size: 12px;
+        font-weight: bolder;
+        letter-spacing: 1.2px;
+      }
+    }
   }
 }

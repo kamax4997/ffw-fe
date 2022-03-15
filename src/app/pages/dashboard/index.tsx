@@ -9,7 +9,7 @@ const Dashboard: React.FC = () => {
     <div className="dashboard">
       <div className="dashboard__container">
         <div className="dashboard__header">
-          <h4>Please select one font</h4>
+          <p>Please select one font</p>
           <Tabs />
         </div>
         <div className="dashboard__content">

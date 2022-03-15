@@ -13,7 +13,6 @@ export interface ITab {
 
 const Tabs: React.FC = () => {
   const dispatch = useDispatch()
-  // const { tabs } = useSelector((state: IRootState) => state.dashboard)
   const { tabs } = useTabs()
 
   useEffect(() => {
@@ -32,14 +31,8 @@ const Tabs: React.FC = () => {
   return (
     <div className="tabs">
       <div className="tabs__container">
-        {tabs.map((tab: ITab) => {
-          return (
-            <Tab
-              key={tab.id}
-              label={tab.label}
-              content_endpoint={tab.content_endpoint}
-            />
-          )
+        {tabs.map((tab: ITab, index: number) => {
+          return <Tab key={tab.id} tab={tab} index={index} />
         })}
       </div>
     </div>

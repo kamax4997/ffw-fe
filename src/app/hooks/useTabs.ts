@@ -6,15 +6,16 @@ import { ITab } from 'app/components/tabs'
 const useTabs = () => {
   const dispatch = useDispatch()
 
-  const { tabs } = useSelector((state: IRootState) => state.dashboard)
+  const { tabs, activeTab } = useSelector(
+    (state: IRootState) => state.dashboard
+  )
 
   return {
     tabs,
+    activeTab,
 
     setTabsAction: (params: ITab[]) => dispatch(setTabs(params)),
-
     clearTabsAction: () => dispatch(clearTabs()),
-
     setActiveTab: (activeTab: number) => dispatch(setActiveTab(activeTab)),
   }
 }

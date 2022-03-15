@@ -1,18 +1,26 @@
 import React, { useEffect } from 'react'
-import axiosInstance from 'app/services/axiosService'
-import { setTabs } from 'app/store/slices/dashboard'
+import useTabs from 'app/hooks/useTabs'
+import { ITab } from '../tabs'
 
 export interface ITabProps {
-  label: string
-  content_endpoint: string
+  tab: ITab
+  index: number
 }
 
 const Tab: React.FC<ITabProps> = (props: ITabProps) => {
-  const { label, content_endpoint } = props
+  const { tab, index } = props
+
+  const { activeTab, setActiveTab } = useTabs()
+
+  const isActive = index === activeTab
+
+  const handleClick = () => {
+    setActiveTab(index)
+  }
 
   return (
-    <div className="tab">
-      <div className="tab__container">{label}</div>
+    <div className={`tab ${isActive ? 'active' : ''}`} onClick={handleClick}>
+      <div className="tab__container">{tab.label.toUpperCase()}</div>
     </div>
   )
 }
