@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Loading from 'app/@core/loading';
-import Tabs from 'app/components/tabs';
+import React, { useState } from 'react'
+import Loading from 'app/@core/loading'
+import Tabs from 'app/components/tabs'
 
 const Dashboard: React.FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   return (
     <div className="dashboard">
@@ -16,7 +16,7 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

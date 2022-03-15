@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Loading: React.FC = () => (
   <div id="loading1">
@@ -11,6 +11,6 @@ const Loading: React.FC = () => (
       </div>
     </div>
   </div>
-);
+)
 
-export default Loading;
+export default Loading
