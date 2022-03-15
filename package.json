@@ -35,9 +35,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx  --fix ./",
-    "prettier:fix": "prettier --write",
-    "prettier:check": "prettier --check",
-    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'"
+    "prettier:fix": "prettier --write --ext .js,.jsx,.ts,.tsx,.json ./",
+    "prettier:check": "prettier --check --ext .js,.jsx,.ts,.tsx,.json ./",
+    "typecheck": "bash -c tsc --noEmit -p ."
   },
   "eslintConfig": {
     "extends": [
@@ -83,8 +83,9 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "npm run fix"
+      "npm run lint:fix",
+      "npm run prettier:fix"
     ],
-    "**/*.{ts,tsx}": "tsc-files --noEmit"
+    "**/*.{ts,tsx}": "npm run typecheck"
   }
 }

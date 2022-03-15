@@ -2,7 +2,7 @@ name: Development workflow
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   deploy:
@@ -24,4 +24,3 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: 'ffw-frontend-assessment'
           heroku_email: 'karlikboroda@gmail.com'
-          

@@ -4,16 +4,16 @@
 
 @keyframes ldio-1b03m6p5bfr {
   0% {
-    transform: rotate(0)
+    transform: rotate(0);
   }
 
   100% {
-    transform: rotate(360deg)
+    transform: rotate(360deg);
   }
 }
 
 .ldio-1b03m6p5bfr div {
-  box-sizing: border-box !important
+  box-sizing: border-box !important;
 }
 
 .ldio-1b03m6p5bfr > div {
@@ -29,7 +29,7 @@
 }
 
 .ldio-1b03m6p5bfr > div:nth-child(2) {
-  border-color: transparent
+  border-color: transparent;
 }
 
 .ldio-1b03m6p5bfr > div:nth-child(2) div {
@@ -41,7 +41,7 @@
 
 .ldio-1b03m6p5bfr > div:nth-child(2) div:before,
 .ldio-1b03m6p5bfr > div:nth-child(2) div:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   width: 4px;

@@ -3,32 +3,35 @@
 ## Author
 
 ### Name: Andrei Strukau
+
 ### Email: karlikboroda@gmail.com
 
 ## Live Demo
+
 [FFW Frontend Assessment](https://ffw-frontend-assessment.herokuapp.com/)
 
 ## Description
 
 Created by using [Create React App](https://github.com/facebook/create-react-app) (CRA) _template_ with following libraries including:
 
-  - React v17.0.2
-  - Type Checker - TypeScript
-  - API client - Axios
-  - Sass
-  - State management - Redux Thunk & Toolkit
-  - Unit & Integration Test - Cypress
-  - Format & Lint - ESLint & Prettier
+- React v17.0.2
+- Type Checker - TypeScript
+- API client - Axios
+- Sass
+- State management - Redux Thunk & Toolkit
+- Unit & Integration Test - Cypress
+- Format & Lint - ESLint & Prettier
 
 Custom Templates, format, and ESlint configurations.
 
 ## Setup Environments
-  - Node 16.13.0
-  - Yarn 1.22.17
 
-  ```
-  yarn install
-  ```
+- Node 16.13.0
+- Yarn 1.22.17
+
+```
+yarn install
+```
 
 ## Run Scripts
 
@@ -47,7 +50,6 @@ Inside the project directory run:
 ## State Management
 
 The code is set for [Redux Toolkit](https://medium.com/react-courses/instant-learn-react-redux-toolkit-with-a-simple-minimalistic-example-3c63c296ed65) you pick.
-
 
 ## Eslint configurations
 
