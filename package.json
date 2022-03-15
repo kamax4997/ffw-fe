@@ -34,8 +34,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
-    "fix": "eslint --ext .js,.jsx,.ts,.tsx  --fix ./",
-    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'"
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx  --fix ./",
+    "prettier:fix": "prettier --write --ext .js,.jsx,.ts,.tsx,.json ./",
+    "prettier:check": "prettier --check --ext .js,.jsx,.ts,.tsx,.json ./",
+    "typecheck": "bash -c tsc --noEmit -p ."
   },
   "eslintConfig": {
     "extends": [
@@ -73,8 +75,17 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.5",
     "mocha": "^9.2.0",
     "prettier": "^2.5.1",
     "ts-node": "^10.4.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint:fix",
+      "npm run prettier:fix"
+    ],
+    "**/*.{ts,tsx}": "npm run typecheck"
   }
 }

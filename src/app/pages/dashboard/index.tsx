@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
-import Loading from 'app/@core/loading'
-import Tabs from 'app/components/tabs'
+import React, { useState } from 'react';
+import Loading from 'app/@core/loading';
+import Tabs from 'app/components/tabs';
 
 const Dashboard: React.FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   return (
-    <div className='dashboard'>
-      <div className='dashboard__container'>
-        <div className='dashboard__header'>
+    <div className="dashboard">
+      <div className="dashboard__container">
+        <div className="dashboard__header">
           <Tabs />
         </div>
-        <div className='dashboard__content'>
+        <div className="dashboard__content">
           {isLoading ? <Loading /> : <></>}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

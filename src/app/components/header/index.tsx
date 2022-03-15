@@ -1,25 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Logo from 'assets/images/logo.jpg'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Logo from 'assets/images/logo.jpg';
 
 const Header: React.FC = () => {
-
   return (
-    <div className='header'>
-      <div className='header__container'>
-        <div className='header__content'>
-          <div className='header__wrapper'>
-            <Link to='/'>
-              <img className='header__logo' src={Logo} />
+    <div className="header">
+      <div className="header__container">
+        <div className="header__content">
+          <div className="header__wrapper">
+            <Link to="/">
+              <img className="header__logo" src={Logo} />
             </Link>
-          </div>
-          <div className='header__title'>
-            <h3>Please select one font</h3>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
