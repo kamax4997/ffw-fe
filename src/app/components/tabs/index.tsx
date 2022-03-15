@@ -1,18 +1,23 @@
 import React, { useEffect } from 'react'
 import axiosInstance from 'app/services/axiosService'
 
+export interface ITab {
+  id: number
+  label: string
+  content_endpoint: string
+}
+
 const Tabs: React.FC = () => {
   useEffect(() => {
-    async function getTags() {
+    async function getTabs() {
       try {
         const result = await axiosInstance.get('tabs')
-        console.log(result, ' result')
       } catch (error) {
         console.log(error)
       }
     }
 
-    getTags()
+    getTabs()
   }, [])
 
   return (
