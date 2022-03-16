@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import axiosInstance from 'app/services/axiosService'
-import { setTabs } from 'app/store/slices/dashboard'
+import { setActiveTab, setTabs } from 'app/store/slices/dashboard'
 import { useDispatch } from 'react-redux'
 import Tab from '../tab'
 import useTabs from 'app/hooks/useTabs'
@@ -19,7 +19,8 @@ const Tabs: React.FC = () => {
     async function getTabs() {
       try {
         const result = await axiosInstance.get('tabs')
-        dispatch(setTabs(result.data))
+        dispatch(setTabs(result?.data))
+        dispatch(setActiveTab(result?.data[0]?.id))
       } catch (error) {
         console.log(error)
       }
@@ -31,8 +32,8 @@ const Tabs: React.FC = () => {
   return (
     <div className="tabs">
       <div className="tabs__container">
-        {tabs.map((tab: ITab, index: number) => {
-          return <Tab key={tab.id} tab={tab} index={index} />
+        {tabs.map((tab: ITab) => {
+          return <Tab key={tab.id} tab={tab} />
         })}
       </div>
     </div>

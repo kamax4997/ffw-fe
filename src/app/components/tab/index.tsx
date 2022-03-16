@@ -1,21 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useMemo } from 'react'
 import useTabs from 'app/hooks/useTabs'
 import { ITab } from '../tabs'
 
 export interface ITabProps {
   tab: ITab
-  index: number
 }
 
 const Tab: React.FC<ITabProps> = (props: ITabProps) => {
-  const { tab, index } = props
+  const { tab } = props
 
   const { activeTab, setActiveTab } = useTabs()
 
-  const isActive = index === activeTab
+  const isActive = useMemo(() => {
+    return tab.id === activeTab
+  }, [activeTab, tab])
 
   const handleClick = () => {
-    setActiveTab(index)
+    setActiveTab(tab.id)
   }
 
   return (

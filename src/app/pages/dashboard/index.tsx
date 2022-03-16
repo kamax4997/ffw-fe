@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Loading from 'app/@core/loading'
 import Tabs from 'app/components/tabs'
+import TabContent from 'app/components/tabContent'
 
 const Dashboard: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -13,7 +14,7 @@ const Dashboard: React.FC = () => {
           <Tabs />
         </div>
         <div className="dashboard__content">
-          {isLoading ? <Loading /> : <></>}
+          {isLoading ? <Loading /> : <TabContent />}
         </div>
       </div>
     </div>
