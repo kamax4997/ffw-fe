@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react'
+import Skeleton from 'react-loading-skeleton'
 import useTabs from 'app/hooks/useTabs'
 import { ITab } from '../tabs'
 import axiosInstance from 'app/services/axiosService'
@@ -64,8 +65,8 @@ const TabContent: React.FC = () => {
           windowSize.width > 900 ? 'active' : ''
         }`}
       >
-        {isLoaded &&
-          (tabContents[activeTab].type === 'Font selection' ? (
+        {isLoaded ? (
+          tabContents[activeTab].type === 'Font selection' ? (
             windowSize.width < 900 ? (
               tabContentItems.map(
                 (tabContent: ITabContentItem, index: number) => {
@@ -130,7 +131,10 @@ const TabContent: React.FC = () => {
             <div className="tabContent__text">
               {tabContents[activeTab].content}
             </div>
-          ))}
+          )
+        ) : (
+          <Skeleton width={500} height={100} />
+        )}
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Skeleton from 'react-loading-skeleton'
 import axiosInstance from 'app/services/axiosService'
 import { setActiveTab, setTabs } from 'app/store/slices/dashboard'
 import { useDispatch } from 'react-redux'
@@ -32,9 +33,16 @@ const Tabs: React.FC = () => {
   return (
     <div className="tabs">
       <div className="tabs__container">
-        {tabs.map((tab: ITab) => {
-          return <Tab key={tab.id} tab={tab} />
-        })}
+        {tabs.length > 0 ? (
+          tabs.map((tab: ITab) => {
+            return <Tab key={tab.id} tab={tab} />
+          })
+        ) : (
+          <>
+            <Skeleton className="tab" width={80} height={20} />
+            <Skeleton className="tab" width={80} height={20} />
+          </>
+        )}
       </div>
     </div>
   )
