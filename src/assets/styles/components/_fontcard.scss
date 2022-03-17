@@ -1,6 +1,6 @@
 .fontcard {
   cursor: pointer;
-  
+
   &.fontcard-selected {
     opacity: 50%;
   }
@@ -21,6 +21,7 @@
       width: 12rem;
       height: 12rem;
       min-width: 12rem;
+      position: relative;
 
       &.fontcard__colorbox-first {
         width: 16rem;
@@ -46,6 +47,23 @@
             font-size: 4.8rem;
           }
         }
+      }
+
+      .colorbox__tooltip {
+        display: none;
+        position: absolute;
+        top: 84%;
+        right: 12%;
+        padding: 4px;
+        border: 1px solid rgb(108, 164, 248);
+        border-radius: 0.5rem;
+        background-color: rgb(59, 147, 230);
+        opacity: 1;
+        color: white;
+      }
+
+      &:hover .colorbox__tooltip {
+        display: block;
       }
     }
 

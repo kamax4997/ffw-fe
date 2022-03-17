@@ -33,6 +33,9 @@ const FontCard: React.FC<IFontCardProps> = (props: IFontCardProps) => {
               {content.abbr}
             </div>
           </div>
+          <span className="colorbox__tooltip">
+            {content['color-blind-label']}
+          </span>
         </div>
         <div className={`fontcard__description ${descriptionClassName}`}>
           {content.label}

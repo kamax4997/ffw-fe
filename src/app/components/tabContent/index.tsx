@@ -67,23 +67,25 @@ const TabContent: React.FC = () => {
         {isLoaded &&
           (tabContents[activeTab].type === 'Font selection' ? (
             windowSize.width < 900 ? (
-              tabContentItems.map((tabContent: ITabContentItem) => {
-                return (
-                  <div
-                    key={tabContent.id}
-                    className="tabContent_item"
-                    onClick={() => handleClick(tabContent.id)}
-                    onKeyDown={() => handleClick(tabContent.id)}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <FontCard
-                      content={tabContent}
-                      isSelected={selectedCard === tabContent.id}
-                    />
-                  </div>
-                )
-              })
+              tabContentItems.map(
+                (tabContent: ITabContentItem, index: number) => {
+                  return (
+                    <div
+                      key={tabContent.id}
+                      className="tabContent_item"
+                      onClick={() => handleClick(tabContent.id)}
+                      onKeyDown={() => handleClick(tabContent.id)}
+                      role="button"
+                      tabIndex={-1 * index}
+                    >
+                      <FontCard
+                        content={tabContent}
+                        isSelected={selectedCard === tabContent.id}
+                      />
+                    </div>
+                  )
+                }
+              )
             ) : (
               <>
                 <div className="tabContent__layouts">
@@ -104,7 +106,7 @@ const TabContent: React.FC = () => {
                 <div className="tabContent__layouts">
                   {tabContentItems
                     .slice(1)
-                    ?.map((tabContent: ITabContentItem) => {
+                    ?.map((tabContent: ITabContentItem, index: number) => {
                       return (
                         <div
                           key={tabContent.id}
@@ -112,7 +114,7 @@ const TabContent: React.FC = () => {
                           onClick={() => handleClick(tabContent.id)}
                           onKeyDown={() => handleClick(tabContent.id)}
                           role="button"
-                          tabIndex={0}
+                          tabIndex={-1 * index}
                         >
                           <FontCard
                             content={tabContent}
