@@ -77,7 +77,7 @@ const TabContent: React.FC = () => {
                       onClick={() => handleClick(tabContent.id)}
                       onKeyDown={() => handleClick(tabContent.id)}
                       role="button"
-                      tabIndex={-1 * index}
+                      tabIndex={0}
                     >
                       <FontCard
                         content={tabContent}
@@ -115,7 +115,7 @@ const TabContent: React.FC = () => {
                           onClick={() => handleClick(tabContent.id)}
                           onKeyDown={() => handleClick(tabContent.id)}
                           role="button"
-                          tabIndex={-1 * index}
+                          tabIndex={0}
                         >
                           <FontCard
                             content={tabContent}
