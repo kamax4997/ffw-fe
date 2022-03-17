@@ -18,11 +18,10 @@ export interface ITabContent {
   type: string
 }
 
-export interface ITabContentProps {}
-
-const TabContent: React.FC<ITabContentProps> = (props: ITabContentProps) => {
+const TabContent: React.FC = () => {
   const { activeTab, tabs, tabContents, setTabContents } = useTabs()
   const windowSize = useWindowSize()
+  const [selectedCard, setSelectedCard] = useState<number>(0)
 
   const filteredTab = useMemo(() => {
     return tabs.find((tab: ITab) => {
@@ -33,6 +32,10 @@ const TabContent: React.FC<ITabContentProps> = (props: ITabContentProps) => {
   const isLoaded = useMemo(() => {
     return Boolean(tabContents[activeTab])
   }, [tabContents, activeTab])
+
+  const handleClick = (cardId: number) => {
+    setSelectedCard(cardId)
+  }
 
   useEffect(() => {
     async function getTabContent() {
@@ -49,6 +52,11 @@ const TabContent: React.FC<ITabContentProps> = (props: ITabContentProps) => {
     if (!isLoaded) getTabContent()
   }, [filteredTab])
 
+  const tabContentItems: ITabContentItem[] = useMemo(
+    () => tabContents[activeTab]?.content as ITabContentItem[],
+    [tabContents, activeTab]
+  )
+
   return (
     <div className="tabContent">
       <div
@@ -59,34 +67,57 @@ const TabContent: React.FC<ITabContentProps> = (props: ITabContentProps) => {
         {isLoaded &&
           (tabContents[activeTab].type === 'Font selection' ? (
             windowSize.width < 900 ? (
-              (tabContents[activeTab].content as ITabContentItem[]).map(
-                (tabContent: ITabContentItem, index: number) => {
-                  return (
-                    <div key={tabContent.id} className="tabContent__items">
-                      <FontCard content={tabContent} isFirst={false} />
-                    </div>
-                  )
-                }
-              )
+              tabContentItems.map((tabContent: ITabContentItem) => {
+                return (
+                  <div
+                    key={tabContent.id}
+                    className="tabContent_item"
+                    onClick={() => handleClick(tabContent.id)}
+                    onKeyDown={() => handleClick(tabContent.id)}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <FontCard
+                      content={tabContent}
+                      isSelected={selectedCard === tabContent.id}
+                    />
+                  </div>
+                )
+              })
             ) : (
               <>
                 <div className="tabContent__layouts">
-                  <div className="tabContent__items">
+                  <div
+                    className="tabContent_item"
+                    onClick={() => handleClick(tabContentItems[0].id)}
+                    onKeyDown={() => handleClick(tabContentItems[0].id)}
+                    role="button"
+                    tabIndex={0}
+                  >
                     <FontCard
-                      content={
-                        (tabContents[activeTab].content as ITabContentItem[])[0]
-                      }
-                      isFirst={true}
+                      content={tabContentItems[0]}
+                      isSelected={selectedCard === tabContentItems[0].id}
+                      isFirst
                     />
                   </div>
                 </div>
                 <div className="tabContent__layouts">
-                  {(tabContents[activeTab].content as ITabContentItem[])
+                  {tabContentItems
                     .slice(1)
-                    ?.map((tabContent: ITabContentItem, index: number) => {
+                    ?.map((tabContent: ITabContentItem) => {
                       return (
-                        <div key={tabContent.id} className="tabContent__items">
-                          <FontCard content={tabContent} isFirst={false} />
+                        <div
+                          key={tabContent.id}
+                          className="tabContent_item"
+                          onClick={() => handleClick(tabContent.id)}
+                          onKeyDown={() => handleClick(tabContent.id)}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          <FontCard
+                            content={tabContent}
+                            isSelected={selectedCard === tabContent.id}
+                          />
                         </div>
                       )
                     })}

@@ -1,4 +1,10 @@
 .fontcard {
+  cursor: pointer;
+  
+  &.fontcard-selected {
+    opacity: 50%;
+  }
+
   .fontcard__container {
     display: flex;
     max-width: 40rem;
@@ -53,7 +59,7 @@
       line-height: 2.4rem;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         display: block;
         width: 16px;
@@ -67,7 +73,7 @@
       &.fontcard__description-first {
         margin-top: 2rem;
         margin-left: 3rem;
-      }      
+      }
     }
   }
 }

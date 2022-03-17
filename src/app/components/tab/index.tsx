@@ -20,7 +20,13 @@ const Tab: React.FC<ITabProps> = (props: ITabProps) => {
   }
 
   return (
-    <div className={`tab ${isActive ? 'active' : ''}`} onClick={handleClick}>
+    <div
+      className={`tab ${isActive ? 'active' : ''}`}
+      onClick={handleClick}
+      onKeyDown={handleClick}
+      role="button"
+      tabIndex={0}
+    >
       <div className="tab__container">{tab.label.toUpperCase()}</div>
     </div>
   )
