@@ -23,7 +23,23 @@
 }
 
 .tabContent {
+  text-align: -webkit-center;
+
   .tabContent__container {
+    width: fit-content;
+
+    &.active {
+      display: flex;
+    }
+
+    // .tabContent__layouts:first-child {
+    //   width: 30%;
+    // }
+
+    // .tabContent__layouts:last-child {
+    //   width: 70%;
+    // }
+
     .tabContent__items {
       margin: 2rem;
     }

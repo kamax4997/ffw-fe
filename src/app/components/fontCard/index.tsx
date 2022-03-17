@@ -12,16 +12,14 @@ const FontCard: React.FC<IFontCardProps> = (props: IFontCardProps) => {
   const { content, isFirst } = props
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  const colorBoxClassName = isFirst
-    ? 'fontcard__colorbox-first'
-    : 'fontcard__colorbox-normal'
-  const colorAbbrClassName = isFirst
-    ? 'colorbox__abbr-first'
-    : 'colorbox__abbr-normal'
+  const colorBoxClassName = isFirst ? 'fontcard__colorbox-first' : ''
+  const colorAbbrClassName = isFirst ? 'colorbox__abbr-first' : ''
+  const containerClassName = isFirst ? 'fontcard__container-first' : ''
+  const descriptionClassName = isFirst ? 'fontcard__description-first' : ''
 
   return (
     <div className="fontcard">
-      <div className="fontcard__container">
+      <div className={`fontcard__container ${containerClassName}`}>
         <div className={`fontcard__colorbox ${colorBoxClassName}`}>
           <div
             className="colorbox__main"
@@ -34,7 +32,9 @@ const FontCard: React.FC<IFontCardProps> = (props: IFontCardProps) => {
             </div>
           </div>
         </div>
-        <div className="fontcard__description">{content.label}</div>
+        <div className={`fontcard__description ${descriptionClassName}`}>
+          {content.label}
+        </div>
       </div>
     </div>
   )
